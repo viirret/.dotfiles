@@ -40,10 +40,7 @@ Plugin 'ycm-core/YouCompleteMe'
 "https://github.com/ycm-core/YouCompleteMe
 
 call vundle#end()
-
-call plug#begin('~/.vim/plugged')
-call plug#end()
-
+filetype plugin indent on
 
 "	Basic settings
 if has ('filetype')
