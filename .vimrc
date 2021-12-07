@@ -19,7 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasiser/vim-code-dark'
 ""https://github.com/tomasiser/vim-code-dark
 
-
 "	Rainbow brackets
 Plugin 'frazrepo/vim-rainbow'
 "https://github.com/frazrepo/vim-rainbow
@@ -41,6 +40,8 @@ Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
+
+execute pathogen#infect()
 
 "	Basic settings
 if has ('filetype')

@@ -1,8 +1,11 @@
 # set super as mod: key
 set $mod Mod4
 
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# set gaps
+gaps inner 10
+gaps outer 0
+smart_gaps on
+
 
 # remove window title
 for_window [class= "^.*"] border pixel 1
@@ -18,6 +21,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xfce4-terminal --disable-wm-check
 exec_always --no-startup-id picom
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -141,7 +145,7 @@ mode "resize" {
 	   
 		# back to normal: Enter or Escape or $mod+r
 		bindsym Return mode "default"
-		bindsym Escape mode "default"
+		bIndsym Escape mode "default"
 		bindsym $mod+r mode "default"
 }
 
@@ -154,11 +158,7 @@ bindsym --release $mod+b exec firefox
 # open flameshot
 bindsym --release $mod+z exec flameshot gui
 
-# screen brightness
-bindsym F5 exec light -A 30 
-bindsym F4 exec light -U 30
-
 # change volume
-bindsym F2 exec pactl set-sink-volume 0 -10%
-bindsym F3 exec pactl set-sink-volume 0 +10%
+bindsym F3 exec pactl set-sink-volume 0 -10%
+bindsym F4 exec pactl set-sink-volume 0 +10%
 
