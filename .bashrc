@@ -17,13 +17,41 @@ alias bye='shutdown now -h now'
 alias c='clear'
 alias free='sudo pacman -R $(pacman -Qdtq)'
 alias vi='nvim'
+alias myip="curl http://ipecho.net/plain; echo"
+
+# git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias fetch='git fetch'
+alias pull='git pull'
+commitall()
+{
+	ga .
+	gc -m $1
+	gp
+}
 
 # set vi keys to terminal
 set -o vi
+
+# cd + ls
+cl()
+{
+	cd $1
+	ls
+}
+
+# mkdir + cd
+mkcd()
+{
+	mkdir $1
+	cd $1
+}
 
 texrefresh()
 {
 	echo $1 | entr sh -c "pdflatex $1"
 }
-
 
