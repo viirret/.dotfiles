@@ -41,8 +41,6 @@ Plugin 'ycm-core/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 
-execute pathogen#infect()
-
 "	Basic settings
 if has ('filetype')
 	filetype plugin indent on

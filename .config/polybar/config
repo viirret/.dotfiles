@@ -1,0 +1,69 @@
+[colors]
+background = #050617
+background-alt = #050642
+foreground = #dfdfdf
+foreground-alt = #dfdfdf
+primary = #4955df
+alert = #a56a6c
+
+[bar/mybar]
+width = 100%
+height = 25
+override-redirect = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 3
+border-color = #050617
+
+padding-left = 0
+padding-right = 0
+
+font-0 = FreeMono: size=13
+
+modules-left = i3
+modules-center = date
+
+wm-restack = i3
+fixed-center = true
+
+[module/date]
+type = internal/date
+
+time = %k:%M
+date = %b %e
+format = <label>
+format-foreground = ${color.white}
+#format-underline = #6699D8
+label = %date%  |  %time%
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
