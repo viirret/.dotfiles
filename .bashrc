@@ -26,7 +26,8 @@ alias bye='shutdown now -h now'
 alias c='clear'
 alias free='sudo pacman -R $(pacman -Qdtq)'
 alias vi='nvim'
-alias myip="curl http://ipecho.net/plain; echo"
+alias myip='curl http://ipecho.net/plain; echo'
+alias neo='neo --charset=ascii'
 
 # git
 alias gs='git status'
