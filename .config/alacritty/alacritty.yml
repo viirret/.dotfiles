@@ -1,0 +1,16 @@
+# font
+font:
+  normal:
+    family: UbuntuMono Nerd Font
+    style: Light
+
+  bold:
+    family: UbuntuMono Nerd Font
+    style: Bold
+
+# margin
+window:
+  padding:
+    x: 10
+    y: 10
+
