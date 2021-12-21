@@ -1,4 +1,4 @@
-"My .vimrc file. This setup is mostly trying to copy the look and feel of VSCode
+""My .vimrc file. This setup is mostly trying to copy the look and feel of VSCode
 
 "not compatible with vi
 set nocompatible
@@ -57,7 +57,7 @@ set shiftwidth=4 "
 set autoindent
 set smartindent
 " word VIM will be added to the title
-let &titleold="VIM"
+set titleold="VIM"
 set title
 
 set nowrap "no wrapping lines

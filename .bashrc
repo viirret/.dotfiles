@@ -1,5 +1,6 @@
 # .BASHRC
 
+# if not running interactively don't do anything
 [[ $- != *i* ]] && return
 
 export PS1=' \[\e[0;35m\]\u\e[0;36m-> \e[0;32m\w\e[0;37m ' 
@@ -28,8 +29,11 @@ alias free='sudo pacman -R $(pacman -Qdtq)'
 alias vi='nvim'
 alias myip='curl http://ipecho.net/plain; echo'
 alias neo='neo --charset=ascii'
+alias m='mount'
+alias um='unmount'
 
 # git
+alias g='git'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
@@ -54,11 +58,9 @@ mkcd()
 	cd $1
 }
 
-
 # refresh pdflatex automatically
 texrefresh()
 {
 	echo $1 | entr sh -c "pdflatex $1"
 }
-
 

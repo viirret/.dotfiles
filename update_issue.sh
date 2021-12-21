@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 name='Valtteri\n'
-time="$(date +'%H')"
+time="10#$(date +'%H')"
 
 # night
 if [[ ${time} -ge 0 && ${time} -lt 6 ]]; then
@@ -23,6 +23,5 @@ if [[ ${time} -ge 18 && ${time} -lt 24 ]]; then
 	timeOfDay='Hyvää iltaa, '
 fi
 
+echo -e ${timeOfDay}${name} > /etc/issue
 
-str=${timeOfDay}${name}
-echo -e ${str} > /etc/issue
