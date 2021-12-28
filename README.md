@@ -1,4 +1,3 @@
 # .dotfiles
-My dotfiles
+My dotfiles, still far away from done
 
-git clone --bare https://github.com/valtteriviirret/.dotfiles.git $HOME/.dotfiles

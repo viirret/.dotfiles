@@ -87,9 +87,6 @@ nnoremap <C-k> :tabnext<CR>
 colorscheme codedark
 set t_Co=256
 
-"""" file syntax highlighting
-"autocmd BufNew,BufRead *.asm set ft=nasm
-
 
 "	Rainbow brackets, default settings except I removed the color red
 "	because I find it distracting

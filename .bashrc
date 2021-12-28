@@ -1,18 +1,11 @@
 # .BASHRC
 
-# if not running interactively don't do anything
 [[ $- != *i* ]] && return
 
 export PS1=' \[\e[0;35m\]\u\e[0;36m-> \e[0;32m\w\e[0;37m ' 
 
-# history settings 
-HISTCONTROL=ignoreboth
-shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=1000
-
 #
-# aliases
+#	aliases
 #
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' >> $HOME/.bashrc
 alias ls='ls --color=auto'
@@ -27,13 +20,11 @@ alias bye='shutdown now -h now'
 alias c='clear'
 alias free='sudo pacman -R $(pacman -Qdtq)'
 alias vi='nvim'
-alias myip='curl http://ipecho.net/plain; echo'
-alias neo='neo --charset=ascii'
-alias m='mount'
-alias um='unmount'
+alias myip="curl http://ipecho.net/plain; echo"
 
+# this does not work
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history 1|sed '\''s/^\s*[0-9]\+\s\+\(.*\)[;&|]\s*alert$/\1/'\'')"'
 # git
-alias g='git'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
@@ -58,7 +49,12 @@ mkcd()
 	cd $1
 }
 
-# refresh pdflatex automatically
+# history settings
+HISTCONTROL=ignoreboth
+shopt -s histappend
+HISTSIZE=1000
+HISTFILESIZE=1000
+
 texrefresh()
 {
 	echo $1 | entr sh -c "pdflatex $1"

@@ -1,0 +1,11 @@
+[Unit]
+Description=update script that handles issue
+
+[Service]
+User=root
+ExecStart=/bin/bash /home/valtteri/update_issue.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+

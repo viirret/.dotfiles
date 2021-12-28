@@ -5,7 +5,10 @@ if status --is-login
     end
 end
 
-set fish_greeting fish
+set fish_greeting
+
+# doom emacs
+export PATH="$HOME/.emacs.d/bin/:$PATH"
 
 #
 # aliases
