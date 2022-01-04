@@ -5,9 +5,10 @@ if status --is-login
     end
 end
 
+# remove fish greeting
 set fish_greeting
 
-# doom emacs
+# doom emacs 
 export PATH="$HOME/.emacs.d/bin/:$PATH"
 
 #
@@ -32,4 +33,16 @@ alias gp='git push'
 alias fetch='git fetch'
 alias pull='git pull'
 
+# colorize grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
+
+# set vi mode
+function fish_user_key_bindings
+	fish_vi_key_bindings
+end
+
+# neovim as manpager
+set -x MANPAGER "nvim -c 'set ft=man' -"
