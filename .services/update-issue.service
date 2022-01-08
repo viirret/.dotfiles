@@ -3,7 +3,7 @@ Description=update script that handles issue
 
 [Service]
 User=root
-ExecStart=/bin/bash /home/valtteri/update_issue.sh
+ExecStart=/usr/bin/env bash /$HOME/update_issue.sh
 Type=oneshot
 
 [Install]
