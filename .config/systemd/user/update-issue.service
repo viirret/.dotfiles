@@ -2,10 +2,9 @@
 Description=update script that handles issue
 
 [Service]
-User=root
-ExecStart=/usr/bin/env bash /$HOME/update_issue.sh
+ExecStart=/bin/bash %h/update_issue.sh
 Type=oneshot
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 
