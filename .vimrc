@@ -124,6 +124,8 @@ let g:lightline = {
 \ }
 
 " YCM extra settings
+let g:ycm_clangd_args=['--header-insertion=never']
+
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 
