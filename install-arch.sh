@@ -17,13 +17,21 @@ install()
 	fi
 }
 
+pacman -S --needed base-devel
+
+# installing yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd
+
+# installing font
+yay -S nerd-fonts-ubuntu-mono
+
 echo -e "\nINSTALLING NEW PACKAGES\n"
 
-install xorg
 install vim
-install picom
 install cloc
-install nitrogen
 install cmatrix
 install entr
 install flameshot
@@ -31,11 +39,16 @@ install curl
 install discord
 install firefox
 install i3
-install polybar
 install wget
 install alacritty
-install xmonad
 install neofetch
+install python
+
+#install nitrogen
+#install picom
+#install xorg
+#install polybar
+#install xmonad
 
 # vundle, working but not ready
 # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

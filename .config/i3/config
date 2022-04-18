@@ -6,12 +6,14 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
-
 # remove window title
 for_window [class= "^.*"] border pixel 1
 
 # change language
 exec_always "setxkbmap -model pc105 -layout us,fi -variant , -option grp:alt_shift_toggle"
+
+# set caps to esc
+exec_always --no-startup-id setxkbmap -option caps:escape
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork

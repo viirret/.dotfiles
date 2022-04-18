@@ -65,6 +65,7 @@ set hls "highlight search
 
 set wildmenu "better command line completion
 set clipboard=unnamed
+set relativenumber
 
 " 	Bracket handling, VSCode style
 inoremap {      {}<Left>
