@@ -60,6 +60,8 @@ set smartindent
 set titleold="VIM"
 set title
 
+set shell=/bin/bash
+
 set nowrap "no wrapping lines
 set hls "highlight search
 

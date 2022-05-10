@@ -8,9 +8,6 @@ end
 # remove fish greeting
 set fish_greeting
 
-# doom emacs 
-export PATH="$HOME/.emacs.d/bin/:$PATH"
-
 #
 # aliases
 #
@@ -23,6 +20,7 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias neo='neo --charset=ascii'
 alias m='mount'
 alias um='unmount'
+thefuck --alias | source
 
 # git
 alias g='git'
@@ -38,11 +36,20 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+# doom emacs 
+export PATH="$HOME/.emacs.d/bin/:$PATH"
 
 # set vi mode
 function fish_user_key_bindings
 	fish_vi_key_bindings
 end
 
+# open Unreal Engine
+function unreal
+	cd /opt/unreal-engine/Engine/Binaries/Linux/
+	./UE4Editor
+end
+
 # neovim as manpager
 set -x MANPAGER "nvim -c 'set ft=man' -"
+
