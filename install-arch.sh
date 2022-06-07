@@ -26,7 +26,8 @@ makepkg -si
 cd
 
 # installing font
-yay -S nerd-fonts-ubuntu-mono
+yay -S ttf-victor-mono
+# yay -S nerd-fonts-ubuntu-mono
 
 echo -e "\nINSTALLING NEW PACKAGES\n"
 
@@ -52,7 +53,6 @@ install python
 
 # vundle, working but not ready
 # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# git clone https://aur.archlinux.org/octofetch.git
 
 echo -e "\nSETTING SERVICES\n"
 chmod +x update_issue.sh

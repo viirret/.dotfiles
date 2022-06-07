@@ -1,47 +1,48 @@
 ""My .vimrc file. This setup is mostly trying to copy the look and feel of VSCode
 
-"not compatible with vi
-set nocompatible
 
-"plugins load correcly when this is turned on later
+"	Rainbow brackets
+"	https://github.com/frazrepo/vim-rainbow
+"
+"
+"	Colorscheme
+"	https://github.com/tomasiser/vim-code-dark
+"
+"
+"	Syntax checking
+"	https://github.com/vim-syntastic/syntastic
+"
+"
+"	Haskell
+"	https://github.com/neovimhaskell/haskell-vim
+
+execute pathogen#infect()
+
+"	load more plugins with Vundle
 filetype off           
-
-"plugin handle with vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "	Vundle
 Plugin 'VundleVim/Vundle.vim'
-"https://github.com/VundleVim/Vundle.vim
-
-
-"	Colorscheme
-Plugin 'tomasiser/vim-code-dark'
-""https://github.com/tomasiser/vim-code-dark
-
-"	Rainbow brackets
-Plugin 'frazrepo/vim-rainbow'
-"https://github.com/frazrepo/vim-rainbow
-
-
-"	Syntax checking
-Plugin 'vim-syntastic/syntastic'
-"https://github.com/vim-syntastic/syntastic
-
+""https://github.com/VundleVim/Vundle.vim
 
 "	Custom statusline
 Plugin 'itchyny/lightline.vim'
 "https://github.com/itchyny/lightline.vim
-
 
 "	YCM autocomplete
 Plugin 'ycm-core/YouCompleteMe'
 "https://github.com/ycm-core/YouCompleteMe
 
 call vundle#end()
-filetype plugin indent on
+
 
 "	Basic settings
+
+"	not compatible with vi
+set nocompatible
+
 if has ('filetype')
 	filetype plugin indent on
 endif
@@ -50,24 +51,25 @@ if has ('syntax')
 	syntax on
 endif
 
-set number "display number
-"tabs
+set number
+set relativenumber
+
+"	tabs
 set tabstop=4
 set shiftwidth=4 "
 set autoindent
 set smartindent
-" word VIM will be added to the title
+
+"	title
 set titleold="VIM"
 set title
 
 set shell=/bin/bash
 
-set nowrap "no wrapping lines
-set hls "highlight search
-
-set wildmenu "better command line completion
+set nowrap 		"no wrapping lines
+set hls 		"highlight search
+set wildmenu 	"better command line completion
 set clipboard=unnamed
-set relativenumber
 
 " 	Bracket handling, VSCode style
 inoremap {      {}<Left>
@@ -91,8 +93,8 @@ colorscheme codedark
 set t_Co=256
 
 
-"	Rainbow brackets, default settings except I removed the color red
-"	because I find it distracting
+"	Same configuration in .config/nvim/init.vim, 
+"	keeping these just in case  if nvim broky
 let g:rainbow_active = 1
 
 let g:rainbow_load_separately = [
@@ -130,5 +132,15 @@ let g:lightline = {
 let g:ycm_clangd_args=['--header-insertion=never']
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+
+
+"https://github.com/neovimhaskell/haskell-vim"
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 

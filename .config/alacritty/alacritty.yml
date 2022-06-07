@@ -1,11 +1,15 @@
 # font
 font:
   normal:
-    family: UbuntuMono Nerd Font
-    style: Light
+    family: Victor Mono
+    style: Medium
+
+  italic:
+    family: Victor Mono
+    style: Italic
 
   bold:
-    family: UbuntuMono Nerd Font
+    family: Victor Mono
     style: Bold
 
 # margin

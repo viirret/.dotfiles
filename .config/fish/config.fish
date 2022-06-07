@@ -49,6 +49,11 @@ function unreal
 	./UE4Editor
 end
 
+# mkdir and cd
+function mkcd
+	mkdir $argv && cd $argv
+end
+
 # neovim as manpager
 set -x MANPAGER "nvim -c 'set ft=man' -"
 
