@@ -57,3 +57,5 @@ end
 # neovim as manpager
 set -x MANPAGER "nvim -c 'set ft=man' -"
 
+set -gx DEBUGINFOD_URLS "https://debuginfod.archlinux.org"
+

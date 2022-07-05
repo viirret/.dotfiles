@@ -26,8 +26,10 @@ makepkg -si
 cd
 
 # installing font
-yay -S ttf-victor-mono
+yay -S ttf-fira-code
+# yay -S ttf-victor-mono
 # yay -S nerd-fonts-ubuntu-mono
+
 
 echo -e "\nINSTALLING NEW PACKAGES\n"
 

@@ -1,16 +1,20 @@
 # font
 font:
   normal:
-    family: Victor Mono
+    family: Fira Code
     style: Medium
 
   italic:
-    family: Victor Mono
+    family: Fira Code
     style: Italic
 
   bold:
-    family: Victor Mono
+    family: Fira Code
     style: Bold
+
+  bold_italic:
+    family: Fira Code
+    style: Bold Italic
 
 # margin
 window:
