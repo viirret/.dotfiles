@@ -12,9 +12,6 @@
 "	Syntax checking
 "	https://github.com/vim-syntastic/syntastic
 "
-"
-"	Haskell
-"	https://github.com/neovimhaskell/haskell-vim
 
 execute pathogen#infect()
 
@@ -132,15 +129,4 @@ let g:lightline = {
 let g:ycm_clangd_args=['--header-insertion=never']
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-
-
-"https://github.com/neovimhaskell/haskell-vim"
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-
 
