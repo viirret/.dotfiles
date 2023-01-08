@@ -25,7 +25,8 @@ packer.startup(function()
 		requires = {
       		-- LSP Support
 		  	{ 'neovim/nvim-lspconfig' },
-		  	{ 'williamboman/nvim-lsp-installer' },
+			{ "williamboman/mason.nvim" },
+    		{ "williamboman/mason-lspconfig.nvim" },
 
 		  	-- autocompletion
 		  	{ 'hrsh7th/nvim-cmp' },
@@ -35,20 +36,31 @@ packer.startup(function()
 		  	{ 'hrsh7th/cmp-nvim-lsp' },
 		  	{ 'hrsh7th/cmp-nvim-lua' },
 	    	
-			-- snipppets
+			-- snippets
 			{ 'L3MON4D3/LuaSnip' },
     	    { 'rafamadriz/friendly-snippets' },
+
 		}
 	  }
+	
+	-- devicons
+	use 'nvim-tree/nvim-web-devicons'
 
 	-- Statusline
-  	use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+  	use 'nvim-lualine/lualine.nvim'
 
 	-- auto close brackets
 	use 'windwp/nvim-autopairs'
 
   	-- Tabline
-  	use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
+  	use 'romgrk/barbar.nvim'
+
+	-- treesitter
+   	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+   	-- rainbow-braces
+   	use 'p00f/nvim-ts-rainbow'
+
 
 end)
 

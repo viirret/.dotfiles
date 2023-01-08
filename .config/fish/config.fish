@@ -38,6 +38,8 @@ alias fgrep='fgrep --color=auto'
 # doom emacs 
 export PATH="$HOME/.emacs.d/bin/:$PATH"
 
+export EDITOR=vim
+
 # set vi mode
 function fish_user_key_bindings
 	fish_vi_key_bindings
