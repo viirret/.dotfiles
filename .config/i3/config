@@ -23,8 +23,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # use network manager
 exec --no-startup-id nm-applet
+
 exec --no-startup-id nitrogen --restore
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -151,6 +151,14 @@ mode "resize" {
 		bIndsym Escape mode "default"
 		bindsym $mod+r mode "default"
 }
+
+bar {
+	status_command i3status
+	position top
+}
+
+# polybar
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # rezise mode
 bindsym $mod+r mode "resize"

@@ -1,0 +1,20 @@
+general {
+	output_format = "i3bar"
+	colors = true
+}
+
+order += "time"
+order += "cpu_temperature 0"
+order += "cpu_usage 0"
+
+time {
+    format = "%V.%e.%y  %H:%M:%S"
+}
+
+cpu_temperature 0 {
+	format = "%degrees°C"
+}
+
+cpu_usage {
+    format = "%usage"
+}
