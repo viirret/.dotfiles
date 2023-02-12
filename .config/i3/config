@@ -4,7 +4,7 @@ set $mod Mod4
 # set gaps
 gaps inner 10
 gaps outer 0
-smart_gaps on
+smart_gaps off
 
 # remove window title
 for_window [class= "^.*"] border pixel 1

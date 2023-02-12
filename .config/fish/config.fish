@@ -45,12 +45,6 @@ function fish_user_key_bindings
 	fish_vi_key_bindings
 end
 
-# open Unreal Engine
-function unreal
-	cd /opt/unreal-engine/Engine/Binaries/Linux/
-	./UE4Editor
-end
-
 # mkdir and cd
 function mkcd
 	mkdir $argv && cd $argv
@@ -59,5 +53,6 @@ end
 # neovim as manpager
 set -x MANPAGER "nvim -c 'set ft=man' -"
 
+# Arch Linux debuginfod
 set -gx DEBUGINFOD_URLS "https://debuginfod.archlinux.org"
 
