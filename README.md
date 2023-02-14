@@ -1,26 +1,26 @@
 <h1 align="center">My .dotfiles</h1>
 
-These are my dotfiles that I use. 
+These dotfiles creates VIM-centric workflow that fits for me.
 
-Note that this repo and it's documentation is not finished yet so there's stuff that doesn't work.
+Please note that this repositoy is created with Arch Linux in mind and some parts may require extra configuration for other distributions.
 
 # How to use my dotfiles
 
 There are couple of ways how to use my dotfiles and dotfiles in general.
 
-Pick whatever suites you best.
+You can pick up my configuration with the install script or create similar repository with git bare repository.
 
-## You know what you are doing
+## The install script
 
-Just clone my repo
+- clone my repository normally
+- load dependencies
 
-```git
-git clone https://github.com/valtteriviirret/.dotfiles.git
 ```
+curl build-essential cmake python3
+```
+- run the install script
 
-Or just copy code straight from github. Whatever suits you best.
-
-## Git bare repository (recommended)
+## Git bare repository
 
 The best way to manage dotfiles in my opinion is git bare repository.
 
@@ -29,4 +29,3 @@ I used this tutorial myself and I think it's pretty good.
 [https://www.atlassian.com/git/tutorials/dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
 You can still use my dotfiles with this practise but you have to make the repo yourself.
-
