@@ -1,39 +1,6 @@
 ""My .vimrc file. This setup is mostly trying to copy the look and feel of VSCode
 
-
-"	Rainbow brackets
-"	https://github.com/frazrepo/vim-rainbow
-"
-"
-"	Colorscheme
-"	https://github.com/tomasiser/vim-code-dark
-"
-"
-"	Syntax checking
-"	https://github.com/vim-syntastic/syntastic
-"
-
 execute pathogen#infect()
-
-"	load more plugins with Vundle
-filetype off           
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-"	Vundle
-Plugin 'VundleVim/Vundle.vim'
-""https://github.com/VundleVim/Vundle.vim
-
-"	Custom statusline
-Plugin 'itchyny/lightline.vim'
-"https://github.com/itchyny/lightline.vim
-
-"	YCM autocomplete
-Plugin 'ycm-core/YouCompleteMe'
-"https://github.com/ycm-core/YouCompleteMe
-
-call vundle#end()
-
 
 "	Basic settings
 
@@ -90,8 +57,7 @@ colorscheme codedark
 set t_Co=256
 
 
-"	Same configuration in .config/nvim/init.vim, 
-"	keeping these just in case  if nvim broky
+"	rainbow colors
 let g:rainbow_active = 1
 
 let g:rainbow_load_separately = [
@@ -104,20 +70,6 @@ let g:rainbow_load_separately = [
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'magenta']
 
-
-"	default settings for syntax highlighting
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"	turn off synctastic for asm
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'passive_filetypes': ['asm'] }
 
 "	custom statusline settings
 set laststatus=2
