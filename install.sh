@@ -24,7 +24,6 @@ for file in "$src_dir"/.[^.]*; do
 		cp -r "$file/." "$dst_config_dir"
 	else
 		# replace already existing dotfiles
-		rm -f "$dst_dir/$filename"
 		cp "$file" "$dst_dir/$filename"
 	fi
 done

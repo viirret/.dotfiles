@@ -19,7 +19,6 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias neo='neo --charset=ascii'
 alias m='mount'
 alias um='unmount'
-thefuck --alias | source
 
 # git
 alias g='git'
