@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # get .dotfiles and HOME directories
 src_dir=$(pwd)
@@ -51,7 +51,13 @@ mkdir -p ~/.local/share/nvim/site/pack/themes/start
 cd ~/.local/share/nvim/site/pack/themes/start
 git clone https://github.com/tomasiser/vim-code-dark
 
+# packer
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
+
 # YouCompleteMe
 git clone https://github.com/ycm-core/YouCompleteMe ~/.vim/bundle/YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe
-python3 install.py --all
+git submodule update --init --recursive
+python3 install.py --clangd-completer
+

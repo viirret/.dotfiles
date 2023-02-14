@@ -7,7 +7,6 @@ local fn = vim.fn
 -- ensure that plugins are installed
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	os.execute("~/.config/nvim/plugin.sh")
 	execute 'packadd packer.nvim'
 end
 
@@ -60,7 +59,6 @@ packer.startup(function()
 
    	-- rainbow-braces
    	use 'p00f/nvim-ts-rainbow'
-
 
 end)
 

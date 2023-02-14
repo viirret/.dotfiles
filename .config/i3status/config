@@ -8,7 +8,7 @@ order += "cpu_temperature 0"
 order += "cpu_usage 0"
 
 time {
-    format = "%V.%e.%y  %H:%M:%S"
+	format = "%A %e, %B  %H:%M:%S"
 }
 
 cpu_temperature 0 {
