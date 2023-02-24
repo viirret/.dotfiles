@@ -6,6 +6,9 @@ gaps inner 10
 gaps outer 0
 smart_gaps off
 
+# font
+font pango:FiraCode Nerd Font 7
+
 # remove window title
 for_window [class= "^.*"] border pixel 1
 
@@ -153,8 +156,9 @@ mode "resize" {
 }
 
 bar {
-	status_command i3status
 	position top
+	tray_output primary
+	status_command /usr/bin/i3status-rs ~/.config/i3/bar/bar.toml
 }
 
 # polybar
