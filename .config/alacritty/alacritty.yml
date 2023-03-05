@@ -1,19 +1,19 @@
 # font
 font:
   normal:
-    family: Fira Code
+    family: FiraCode Nerd Font
     style: Medium
 
   italic:
-    family: Fira Code
+    family: FiraCode Nerd Font
     style: Italic
 
   bold:
-    family: Fira Code
+    family: FiraCode Nerd Font
     style: Bold
 
   bold_italic:
-    family: Fira Code
+    family: FiraCode Nerd Font
     style: Bold Italic
 
 # margin
