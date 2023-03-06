@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{~/.latex/bib/uni.bib}
+
+\author{Valtteri Viirret}
+\title{My bibliography management}
+
+\begin{document}
+
+\maketitle
+
+\section{Using References in LaTeX}
+
+In his book \textcite{shakespeare}, famously wrote: "To be, or not to be, that is the question".
+
+\section{Compiling With Biber}
+
+To compile your LaTeX document, run the following commands:
+
+\begin{verbatim}
+~/.latex/refresh.sh
+biber filename
+~/.latex/refresh.sh
+\end{verbatim}\
+Replace "filename" with the name of your actual .tex file.
+
+\section{Updating management}
+\begin{itemize}
+	\item[-] Commit and push new .bib entries to Github
+	\item[-] Update subrepository with \begin{verbatim}
+										config submodule update
+										\end{verbatim}
+\end{itemize}
+
+\printbibliography
+
+\end{document}
+
