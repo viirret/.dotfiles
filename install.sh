@@ -5,7 +5,7 @@ src_dir=$(pwd)
 dst_dir=~
 
 # don't copy these files to HOME directory
-skip_files=(".git" ".gitignore" "README.md" "install.sh")
+skip_files=(".git" ".gitignore" ".gitmodules" "README.md" "install.sh")
 
 # copy all the files from src to dst
 for file in "$src_dir"/.[^.]*; do
