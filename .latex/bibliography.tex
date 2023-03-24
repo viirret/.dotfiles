@@ -19,7 +19,6 @@ In his book \textcite{shakespeare}, famously wrote: "To be, or not to be, that i
 To compile your LaTeX document, run the following commands:
 
 \begin{verbatim}
-~/.latex/refresh.sh
 biber filename
 ~/.latex/refresh.sh
 \end{verbatim}\
@@ -29,8 +28,9 @@ Replace "filename" with the name of your actual .tex file.
 \begin{itemize}
 	\item[-] Commit and push new .bib entries to Github
 	\item[-] Update subrepository with \begin{verbatim}
-										config submodule update
+										config submodule update --remote
 										\end{verbatim}
+	\item[-] Commit changes to .dotfiles repository
 \end{itemize}
 
 \printbibliography
