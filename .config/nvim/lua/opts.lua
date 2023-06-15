@@ -14,6 +14,8 @@ opt.relativenumber = true
 opt.ruler = true
 opt.clipboard = 'unnamedplus'
 opt.shell = '/bin/bash'
+opt.expandtab = true
+opt.list = true
 
 cmd "set noshowmode"
 cmd "abb WQ wq"

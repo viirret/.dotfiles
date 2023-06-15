@@ -4,11 +4,11 @@ require('plug')
 -- options
 require('opts')
 
--- plugin setup
-require('setup')
-
 -- key mappings
 require('keys')
+
+-- plugin setup
+require('setup')
 
 -- lsp
 require('lsp')
