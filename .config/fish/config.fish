@@ -49,8 +49,8 @@ function mkcd
 	mkdir $argv && cd $argv
 end
 
-# neovim as manpager
-set -x MANPAGER "nvim -c 'set ft=man' -"
+# vim as manpager
+set -gx MANPAGER "vim -R"
 
 # Arch Linux debuginfod
 set -gx DEBUGINFOD_URLS "https://debuginfod.archlinux.org"
