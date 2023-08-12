@@ -2,7 +2,7 @@
 
 These dotfiles creates VIM-centric workflow that fits for me.
 
-Please note that this repositoy is created with Arch Linux in mind and some parts may require extra configuration for other distributions.
+Please note that this repository is created with Arch Linux in mind and some parts may require extra configuration for other distributions.
 
 # How to use my dotfiles
 
@@ -18,6 +18,18 @@ You can pick up my configuration with the install script or create similar repos
 ```
 curl build-essential cmake python3
 ```
+
+Extra dependencies for LaTeX
+```
+detex biber texlive evince
+```
+
+
+with Arch Linux use
+
+``
+texlive-most
+``
 - run the install script
 
 ## Git bare repository

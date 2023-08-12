@@ -156,9 +156,8 @@ mode "resize" {
 }
 
 bar {
-	position top
-	tray_output primary
-	status_command /usr/bin/i3status-rs ~/.config/i3/bar/bar.toml
+    position top
+    status_command i3status
 }
 
 # polybar
@@ -172,8 +171,4 @@ bindsym --release $mod+b exec firefox
 
 # open flameshot
 bindsym --release $mod+z exec flameshot gui
-
-# change volume
-bindsym F3 exec pactl set-sink-volume 0 -10%
-bindsym F4 exec pactl set-sink-volume 0 +10%
 

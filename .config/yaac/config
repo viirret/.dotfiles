@@ -7,3 +7,7 @@ clockColor=#606060
 buttonColor=#B30C15
 buttonText=#FFFFFF
 buttonBlink=#00FF00
+
+# play sound from button (false by default)
+#buttonSound=true
+

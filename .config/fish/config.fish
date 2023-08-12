@@ -50,7 +50,7 @@ function mkcd
 end
 
 # vim as manpager
-set -gx MANPAGER "vim -R"
+#set -gx MANPAGER "vim"
 
 # Arch Linux debuginfod
 set -gx DEBUGINFOD_URLS "https://debuginfod.archlinux.org"

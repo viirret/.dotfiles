@@ -1,4 +1,4 @@
-""My .vimrc file. This setup is mostly trying to copy the look and feel of VSCode
+""My .vimrc file. This setup is mostly trying to copy the look of VSCode
 
 execute pathogen#infect()
 
@@ -57,7 +57,7 @@ colorscheme codedark
 set t_Co=256
 
 
-"	rainbow colors
+"	rainbow colors, red is removed
 let g:rainbow_active = 1
 
 let g:rainbow_load_separately = [

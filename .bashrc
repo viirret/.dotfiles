@@ -18,7 +18,6 @@ alias ..='cd ..'
 alias sammu='shutdown now -h now'
 alias bye='shutdown now -h now'
 alias c='clear'
-alias free='sudo pacman -R $(pacman -Qdtq)'
 alias vi='nvim'
 alias myip="curl http://ipecho.net/plain; echo"
 
