@@ -39,26 +39,31 @@ packer.startup(function()
 			{ 'L3MON4D3/LuaSnip' },
     	    { 'rafamadriz/friendly-snippets' },
 
-		}
+        }
 	  }
-	
-	-- devicons
-	use 'nvim-tree/nvim-web-devicons'
 
-	-- Statusline
-  	use 'nvim-lualine/lualine.nvim'
+    -- telescope
+    use { 'nvim-telescope/telescope.nvim', requires = {
+        { 'nvim-lua/plenary.nvim'} }
+    }
 
-	-- auto close brackets
-	use 'windwp/nvim-autopairs'
+    -- deviconsuse
+    use 'nvim-tree/nvim-web-devicons'
 
-  	-- Tabline
-  	use 'romgrk/barbar.nvim'
+    -- Statuslineuse
+    use 'nvim-lualine/lualine.nvim'
 
-	-- treesitter
-   	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- auto close brackets
+    use 'windwp/nvim-autopairs'
 
-   	-- rainbow-braces
-   	use 'p00f/nvim-ts-rainbow'
+    -- Tabline
+    use 'romgrk/barbar.nvim'
+
+    -- treesitter
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    -- rainbow-braces
+    use 'p00f/nvim-ts-rainbow'
 
 end)
 

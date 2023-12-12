@@ -12,10 +12,6 @@ end
 -- Leader key
 vim.g.mapleader = " "
 
--- easy switching between tabs
-map("n", "<C-j>", '<cmd>tabprev<cr>')
-map("n", "<C-k>", '<cmd>tabnext<cr>')
-
 -- paste from os clipboard
 map('n', '<M-v>', '"+p')
 map('n', '<M-V>', '"+P')
@@ -26,4 +22,10 @@ map('', '<down>', '<nop>')
 map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
+-- telescope extra settings
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
