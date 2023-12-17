@@ -12,7 +12,7 @@ end
 -- Leader key
 vim.g.mapleader = " "
 
--- paste from os clipboard
+-- Paste from os clipboard
 map('n', '<M-v>', '"+p')
 map('n', '<M-V>', '"+P')
 
@@ -22,7 +22,11 @@ map('', '<down>', '<nop>')
 map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
--- telescope extra settings
+-- Easy switching between buffers
+map('n', '<C-j>', ':bprevious<CR>')
+map('n', '<C-k>', ':bnext<CR>')
+
+-- Telescope extra settings
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
