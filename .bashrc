@@ -59,3 +59,5 @@ texrefresh()
 	echo $1 | entr sh -c "pdflatex $1"
 }
 
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+

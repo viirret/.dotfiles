@@ -35,17 +35,6 @@ set hls 		"highlight search
 set wildmenu 	"better command line completion
 set clipboard=unnamed
 
-" 	Bracket handling, VSCode style
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-
-inoremap (  ()<ESC>hli
-inoremap [	[]<ESC>hli
-inoremap "	""<ESC>hli
-inoremap '	''<ESC>hli
-
 "	Easy switching between tabs
 nnoremap <C-Left> :tabprevious<CR>                                                                            
 nnoremap <C-Right> :tabnext<CR>

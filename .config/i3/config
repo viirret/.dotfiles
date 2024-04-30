@@ -1,32 +1,33 @@
-# set super as mod: key
+# Set super as mod key
 set $mod Mod4
 
-# set gaps
+# Set gaps
 gaps inner 10
 gaps outer 0
-smart_gaps off
+smart_gaps on
 
-# font
+# Font
 font pango:FiraCode Nerd Font 7
 
-# remove window title
+# Remove window title
 for_window [class= "^.*"] border pixel 1
 
-# change language
+# Switch between English and Finnish using alt-shift.
 exec_always "setxkbmap -model pc105 -layout us,fi -variant , -option grp:alt_shift_toggle"
 
-# set caps to esc
-exec_always --no-startup-id setxkbmap -option caps:escape
-
-# picom
+# Compositor
 exec_always --no-startup-id "picom --config /home/valtteri/.config/picom.conf"
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# use network manager
+# Use network manager
 exec --no-startup-id nm-applet
 
+# Apply screen layout
+exec_always --no-startup-id ~/.screenlayout/config.sh
+
+# Set wallpaper.
 exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
@@ -39,14 +40,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal
 bindsym $mod+Return exec alacritty
 
-# kill focused window
+# Kill focused window
 bindsym $mod+q kill
 
-# start dmenu 
-bindsym $mod+d exec dmenu_run
+# Start dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -135,24 +136,23 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window 
+# resize window
 mode "resize" {
-		bindsym h resize shrink width 10 px or 10 ppt
-		bindsym j resize grow height 10 px or 10 ppt
-		bindsym k resize shrink height 10 px or 10 ppt
-		bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
-		# same bindings, but for the arrow keys
-		bindsym Left resize shrink width 10 px or 10 ppt
-		bindsym Down resize grow height 10 px or 10 ppt
-		bindsym Up resize shrink height 10 px or 10 ppt
-		bindsym Right resize grow width 10 px or 10 ppt
-		
-	   
-		# back to normal: Enter or Escape or $mod+r
-		bindsym Return mode "default"
-		bIndsym Escape mode "default"
-		bindsym $mod+r mode "default"
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
 
 bar {
@@ -160,15 +160,15 @@ bar {
     status_command i3status
 }
 
-# polybar
+# Polybar as alternative.
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# rezise mode
+# Rezise mode.
 bindsym $mod+r mode "resize"
 
-# open firefox
+# Open firefox.
 bindsym --release $mod+b exec firefox
 
-# open flameshot
+# Open flameshot.
 bindsym --release $mod+z exec flameshot gui
 
