@@ -1,20 +1,33 @@
 general {
-	output_format = "i3bar"
-	colors = true
+    output_format = "i3bar"
+    colors = true
 }
 
 order += "time"
 order += "cpu_temperature 0"
 order += "cpu_usage 0"
+order += "disk /"
+order += "read_file keyboard"
 
 time {
-	format = "%A %e, %B  %H:%M:%S"
+    format = "%A %e, %B  %H:%M:%S"
 }
 
 cpu_temperature 0 {
-	format = "%degrees°C"
+    format = "%degrees°C"
 }
 
 cpu_usage {
     format = "%usage"
 }
+
+disk "/" {
+    format = "%free"
+}
+
+read_file keyboard {
+    format = "%content"
+    path = "~/.config/i3status/keyboard_layout"
+}
+
+
