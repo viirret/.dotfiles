@@ -3,6 +3,7 @@ general {
     colors = true
 }
 
+order += "read_file spotify"
 order += "time"
 order += "cpu_temperature 0"
 order += "cpu_usage 0"
@@ -28,6 +29,11 @@ disk "/" {
 read_file keyboard {
     format = "%content"
     path = "~/.config/i3status/keyboard_layout"
+}
+
+read_file spotify {
+    format = "%content"
+    path = "~/.config/i3status/spotify_info"
 }
 
 
