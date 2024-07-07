@@ -24,6 +24,9 @@ exec_always --no-startup-id ~/.scripts/keyboard_layout.sh
 # Update spotify_notifications.
 exec_always --no-startup-id ~/.scripts/spotify_info.sh
 
+# Laptop battery script.
+exec_always --no-startup-id ~/.scripts/laptop_battery.sh
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
