@@ -23,7 +23,7 @@ input * {
 }
 
 # Font
-font pango:FiraCode Nerd Font 7
+font pango:FiraCode Nerd Font 10
 
 # Remove window title
 for_window [class= "^.*"] border pixel 1

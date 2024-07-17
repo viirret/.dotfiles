@@ -15,6 +15,7 @@ time {
 }
 
 cpu_temperature 0 {
+    path = "/sys/class/hwmon/hwmon0/temp1_input"
     format = "%degrees°C"
 }
 
