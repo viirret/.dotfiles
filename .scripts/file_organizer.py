@@ -1,17 +1,18 @@
 import os
 import shutil
-import argparse
+import magic
 
 # Current user home dir.
 HOME_DIR = os.path.expanduser("~")
 
-DIRECTORIES_TO_SCAN = [ HOME_DIR, os.path.join(HOME_DIR, "Downloads")]
+DIRECTORIES_TO_SCAN = [ HOME_DIR, os.path.join(HOME_DIR, "Downloads") ]
 
 # Directories where to move files.
 images = "Images"
 documents = "Documents"
 music = "Music"
 videos = "Videos"
+snippets = "Snippets"
 
 EXTENSION_DIR_MAP = {
     ".jpg": images,
@@ -19,20 +20,38 @@ EXTENSION_DIR_MAP = {
     ".gif": images,
     ".pdf": documents,
     ".mp3": music,
-    ".mp4": videos
+    ".mp4": videos,
+
+    ".sh": snippets,
+    ".py": snippets,
+    ".cc": snippets,
+    ".ts": snippets,
+    ".js": snippets
 }
 
 PREVIEW_SIZE_LIMIT = 500
 
-DIRECTORIES_TO_IGNORE = [
+ITEMS_TO_IGNORE = [
     "code", # Own git repos
     "Backup",
     "Games",
-    "Notes"
+    "Notes",
+
+    # .dotfiles
+    "README.md",
+    "install.sh",
+
+    "sway.log" # sway
 ]
 
+magic_instance = magic.Magic(mime=True)
+
+def is_text_file(file_path):
+    mime_type = magic_instance.from_file(file_path)
+    return mime_type is not None and mime_type.startswith('text')
+
 def should_ignore(item):
-    return item.startswith('.') or item in DIRECTORIES_TO_IGNORE
+    return item.startswith('.') or item in ITEMS_TO_IGNORE
 
 def get_user_action(file_path):
     print(f"File: {file_path}")
@@ -40,14 +59,26 @@ def get_user_action(file_path):
     return action
 
 def print_file_preview(file_path):
-    if os.path.getsize(file_path) > PREVIEW_SIZE_LIMIT:
-        print("No preview, file too big")
-    elif os.path.getsize(file_path) == 0:
-        print("No preview, empty file")
-    else:
-        with open(file_path, 'r', errors='ignore') as file:
-            content = file.read(PREVIEW_SIZE_LIMIT)
-            print(f"Preview:\n{content}\n")
+    try:
+        file_size = os.path.getsize(file_path)
+        if file_size == 0:
+            print("No preview, empty file")
+            return
+
+        if not is_text_file(file_path):
+            print(f"No preview available for non-text file: {file_path}")
+            return
+
+        if file_size > PREVIEW_SIZE_LIMIT:
+            with open(file_path, 'r', errors='ignore') as file:
+                content = file.read(PREVIEW_SIZE_LIMIT)
+                print(f"Preview (first {PREVIEW_SIZE_LIMIT} characters):\n{content}\n")
+        else:
+            with open(file_path, 'r', errors='ignore') as file:
+                content = file.read()
+                print(f"Preview:\n{content}\n")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 def organize_file(file_path, dest_dir):
     destination_path = os.path.join(HOME_DIR, dest_dir)
@@ -77,7 +108,7 @@ def main():
                     print(f"Skipped {file_path}")
                 else:
                     print("Invalid action. Skipping file")
-
+                print("")
 
 if __name__ == "__main__":
     main()
