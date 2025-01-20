@@ -47,23 +47,13 @@ packer.startup(function()
         { 'nvim-lua/plenary.nvim'} }
     }
 
-    -- deviconsuse
     use 'nvim-tree/nvim-web-devicons'
-
-    -- Statuslineuse
     use 'nvim-lualine/lualine.nvim'
-
-    -- auto close brackets
     use 'windwp/nvim-autopairs'
-
-    -- Tabline
     use 'romgrk/barbar.nvim'
-
-    -- treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-    -- rainbow-braces
     use 'p00f/nvim-ts-rainbow'
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
 end)
 
