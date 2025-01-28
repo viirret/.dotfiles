@@ -4,57 +4,169 @@ local vim = vim
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
--- ensure that plugins are installed
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	execute 'packadd packer.nvim'
+-- Ensure lazy.nvim is installed
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer = require'packer'
-local util = require'packer.util'
+-- Configure lazy.nvim
+require("lazy").setup({
+  -- LSP and completion
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = 'v2.x',
+    dependencies = {
+      {'neovim/nvim-lspconfig'},             -- Core LSP
+      {'williamboman/mason.nvim'},           -- LSP server manager
+      {'williamboman/mason-lspconfig.nvim'}, -- Bridges Mason and lspconfig
+      {'hrsh7th/nvim-cmp'},                  -- Autocompletion
+      {'hrsh7th/cmp-nvim-lsp'},              -- LSP source for nvim-cmp
+      {'hrsh7th/cmp-buffer'},                -- Buffer completion source
+      {'hrsh7th/cmp-path'},                  -- Path completion source
+      {'L3MON4D3/LuaSnip'},                  -- Snippet engine
+      {'saadparwaiz1/cmp_luasnip'},          -- LuaSnip source for nvim-cmp
+    },
+    config = function()
+      local lsp = require('lsp-zero')
 
---- startup and add configure plugins
-packer.startup(function()
-	local use = use
-	-- self
-	use 'wbthomason/packer.nvim'
+      -- Basic LSP setup
+      lsp.extend_lspconfig()
 
-	-- code completion
-	use { 'VonHeikemen/lsp-zero.nvim',
-		requires = {
-      		-- LSP Support
-		  	{ 'neovim/nvim-lspconfig' },
-			{ "williamboman/mason.nvim" },
-    		{ "williamboman/mason-lspconfig.nvim" },
+      -- Ensure Mason is set up for managing servers
+      require('mason').setup()
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'clangd' },
+        automatic_installation = true,
+      })
 
-		  	-- autocompletion
-		  	{ 'hrsh7th/nvim-cmp' },
-		  	{ 'hrsh7th/cmp-buffer' },
-		  	{ 'hrsh7th/cmp-path' },
-			{ 'saadparwaiz1/cmp_luasnip' },
-		  	{ 'hrsh7th/cmp-nvim-lsp' },
-		  	{ 'hrsh7th/cmp-nvim-lua' },
-	    	
-			-- snippets
-			{ 'L3MON4D3/LuaSnip' },
-    	    { 'rafamadriz/friendly-snippets' },
+      local lspconfig = require('lspconfig')
+      lspconfig.clangd.setup({
+        cmd = { "clangd", "--header-insertion=never" },
+      })
 
-        }
-	  }
+      -- Setup nvim-cmp for autocompletion
+      local cmp = require('cmp')
+      local cmp_select = { behavior = cmp.SelectBehavior.Select }
+      local cmp_mappings = lsp.defaults.cmp_mappings({
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      })
 
-    -- telescope
-    use { 'nvim-telescope/telescope.nvim', requires = {
-        { 'nvim-lua/plenary.nvim'} }
+      -- nvim-cmp sources
+      cmp.setup({
+        mapping = cmp_mappings,
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'buffer' },
+          { name = 'path' },
+          { name = 'luasnip' },
+        },
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end,
+        },
+      })
+
+      -- Finalize LSP configuration
+      lsp.setup()
+    end,
+  },
+
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  -- Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        highlight = { enable = true },
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+          max_file_lines = nil,
+        },
+      })
+    end,
+  },
+  { "p00f/nvim-ts-rainbow" },
+
+  -- UI Enhancements
+  "nvim-tree/nvim-web-devicons",
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("lualine").setup()
+    end,
+  },
+  { "romgrk/barbar.nvim" },
+
+  -- Codedark theme
+  {
+    "tomasiser/vim-code-dark",
+    config = function()
+      vim.cmd("colorscheme codedark")
+    end,
+  },
+
+  {
+    'windwp/nvim-autopairs',
+    opts = {}
+  },
+
+  -- lualine
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      options = {
+        theme = 'auto',
+        section_separators = '',
+        component_separators = ''
+      }
     }
+  },
 
-    use 'nvim-tree/nvim-web-devicons'
-    use 'nvim-lualine/lualine.nvim'
-    use 'windwp/nvim-autopairs'
-    use 'romgrk/barbar.nvim'
-    use 'p00f/nvim-ts-rainbow'
+  -- nvim-treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    opts = {
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false
+      },
+      rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil
+      }
+    }
+  },
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  -- Utilities
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  },
 
-end)
+})
 
 

@@ -7,8 +7,5 @@ require('opts')
 -- key mappings
 require('keys')
 
--- plugin setup
-require('setup')
-
--- lsp
-require('lsp')
+local clear_lsp_log = require('clear_lsp_log')
+clear_lsp_log.clear_lsp_log_if_needed()

@@ -28,7 +28,8 @@ for file in "$src_dir"/.[^.]*; do
 	fi
 done
 
-# 	VIM
+# Lazy
+git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
 
 # pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -49,10 +50,6 @@ git clone https://github.com/tomasiser/vim-code-dark
 mkdir -p ~/.local/share/nvim/site/pack/themes/start
 cd ~/.local/share/nvim/site/pack/themes/start
 git clone https://github.com/tomasiser/vim-code-dark
-
-# packer
-git clone https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 
 # YouCompleteMe
 git clone https://github.com/ycm-core/YouCompleteMe ~/.vim/bundle/YouCompleteMe
