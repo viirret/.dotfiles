@@ -1,17 +1,9 @@
 # Remove fish greeting
 set fish_greeting
 
-#
-# aliases
-#
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' >> $HOME/.bashrc
-alias bye='shutdown now -h now'
-alias c='clear'
-alias vi='nvim'
-alias myip='curl http://ipecho.net/plain; echo'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+if test -f ~/.scripts/shell_aliases.sh
+    source ~/.scripts/shell_aliases.sh
+end
 
 export EDITOR=vim
 
