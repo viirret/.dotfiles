@@ -10,4 +10,6 @@ alias bye='shutdown now -h now'
 alias c='clear'
 alias vi='nvim'
 alias myip="curl http://ipecho.net/plain; echo"
+alias fk="~/.scripts/kill_process.py $1"
+alias cleaner="~/.scripts/file_organizer.py"
 

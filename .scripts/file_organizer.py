@@ -3,6 +3,7 @@
 import os
 import shutil
 import magic
+from colorama import Fore, Style
 
 # Current user home dir.
 HOME_DIR = os.path.expanduser("~")
@@ -38,11 +39,11 @@ ITEMS_TO_IGNORE = [
     "Backup",
     "Games",
     "Notes",
+    "Snippets",
 
-    # .dotfiles
-    "README.md",
-    "install.sh",
+    "go",
 
+    "README.md", # .dotfiles
     "sway.log" # sway
 ]
 
@@ -56,7 +57,7 @@ def should_ignore(item):
     return item.startswith('.') or item in ITEMS_TO_IGNORE
 
 def get_user_action(file_path):
-    print(f"File: {file_path}")
+    print(f"File: {Fore.YELLOW}{file_path}{Style.RESET_ALL}")
     action = input("What would you like to do? (m: move, d: delete, s: skip): ").strip().lower()
     return action
 
