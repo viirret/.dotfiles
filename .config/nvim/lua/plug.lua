@@ -50,11 +50,12 @@ require("lazy").setup({
       -- Set up keymaps for LSP features
       local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Go to definition
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Go to declaration
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- Show documentation
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)             -- Go to definition
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)            -- Go to declaration
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)                   -- Show documentation
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)         -- Rename symbol
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)    -- Code actions
+        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)         -- Show diagnostics
       end
 
       local lspconfig = require('lspconfig')

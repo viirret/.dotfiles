@@ -22,11 +22,11 @@ map('', '<down>', '<nop>')
 map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
--- Easy switching between buffers
+-- Vim motions for buffers
 map('n', '<C-j>', ':bprevious<CR>')
 map('n', '<C-k>', ':bnext<CR>')
 
--- Telescope extra settings
+-- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { noremap = true, silent = true })
