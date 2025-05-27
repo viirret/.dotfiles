@@ -43,7 +43,7 @@ require("lazy").setup({
       -- Ensure Mason is set up for managing servers
       require('mason').setup()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd' },
+        ensure_installed = { 'clangd', 'omnisharp', 'pylsp' },
         automatic_installation = true,
       })
 
@@ -59,10 +59,33 @@ require("lazy").setup({
       end
 
       local lspconfig = require('lspconfig')
+
+      -- Clangd
       lspconfig.clangd.setup({
         cmd = { "clangd", "--header-insertion=never" },
-        on_attach = on_attach -- Attach keymaps
+        on_attach = on_attach
       })
+
+      -- Omnisharp (C#)
+      lspconfig.omnisharp.setup({
+          on_attach = on_attach
+      })
+
+      -- Pylsp
+      lspconfig.pylsp.setup({
+        on_attach = on_attach,
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = { enabled = true },
+              pyflakes = { enabled = true },
+              pylint = { enabled = false },
+              autopep8 = { enabled = false }
+            }
+          }
+        }
+     })
 
       -- Setup nvim-cmp for autocompletion
       local cmp = require('cmp')
@@ -145,13 +168,15 @@ require("lazy").setup({
   -- lualine
   {
     'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        theme = 'auto',
-        section_separators = '',
-        component_separators = ''
-      }
-    }
+    config = function()
+        require("lualine").setup({
+          options = {
+            theme = 'auto',
+            section_separators = { left = '', right = '' },
+            component_separators = { left = '', right = '' }
+        }
+    })
+    end,
   },
 
   -- nvim-treesitter
