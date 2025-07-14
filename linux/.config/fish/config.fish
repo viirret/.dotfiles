@@ -1,8 +1,10 @@
+cd ~
+
 # Remove fish greeting
 set fish_greeting
 
-if test -f ~/.scripts/shell_aliases.sh
-    source ~/.scripts/shell_aliases.sh
+if test -f ~/.dotfiles/scripts/shell_aliases.sh
+    source ~/.dotfiles/scripts/shell_aliases.sh
 end
 
 export EDITOR=vim
