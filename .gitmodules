@@ -1,0 +1,3 @@
+[submodule "latex/unibib"]
+	path = latex/unibib
+	url = git@github.com:viirret/bib.git
