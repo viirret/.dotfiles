@@ -1,7 +1,17 @@
-{ config, pkgs, ... };
+{ config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-  programs.firefox.enable = true;
-  services.openssh.enable = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+    };
+  };
+
+  boot.supportedFilesystems = [ "ext4" "vfat" ];
 }

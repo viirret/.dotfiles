@@ -39,6 +39,9 @@
           ./configuration.nix
 	  ./hosts/laptop/hardware-configuration.nix
           ./hosts/laptop/default.nix
+
+	  ./modules/xserver/default.nix
+          ./modules/wm/i3/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
