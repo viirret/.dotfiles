@@ -20,8 +20,8 @@
           ./hosts/wm/hardware-configuration.nix
 	  ./hosts/wm/default.nix
 
-	  ./modules/xserver/default.nix
-          ./modules/wm/i3/default.nix
+	  ./modules/xserver/wm.nix
+          ./modules/window-manager/i3/default.nix
           home-manager.nixosModules.home-manager
           {
               home-manager = {
@@ -39,9 +39,7 @@
           ./configuration.nix
 	  ./hosts/laptop/hardware-configuration.nix
           ./hosts/laptop/default.nix
-
-	  ./modules/xserver/default.nix
-          ./modules/wm/i3/default.nix
+	  ./modules/laptop.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -52,7 +50,6 @@
           }
 	];
       };
-
     };
   };
 }
