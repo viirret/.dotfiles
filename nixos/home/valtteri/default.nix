@@ -27,5 +27,6 @@
     alacritty
     fish
     i3
+    neovim
   ];
 }
