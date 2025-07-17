@@ -2,24 +2,18 @@
 
 {
   imports = [
+    ../home.nix
     ../fish.nix
+    ../git.nix
     ../nvim.nix
   ];
 
-  home.stateVersion = "23.11";
   home.username = "valtteri";
   home.homeDirectory = "/home/valtteri";
 
-  programs = {
-    git = {
-      enable = true;
-      userName = "viirret";
-      userEmail = "viirretvaltteri@gmail.com";
-
-      ignores = [
-        ".env"
-      ];
-    };
+  programs.git = {
+    userName = "viirret";
+    userEmail = "viirretvaltteri@gmail.com";
   };
 
   home.packages = with pkgs; [
