@@ -43,8 +43,8 @@ require("lazy").setup({
       -- Ensure Mason is set up for managing servers
       require('mason').setup()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd', 'omnisharp', 'pylsp' },
-        automatic_installation = true,
+        ensure_installed = {},
+        automatic_installation = false
       })
 
       -- Set up keymaps for LSP features
