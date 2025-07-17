@@ -17,11 +17,8 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./hosts/wm/hardware-configuration.nix
 	  ./hosts/wm/default.nix
-
-	  ./modules/xserver/wm.nix
-          ./modules/window-manager/i3/default.nix
+	  ./modules/wm.nix
           home-manager.nixosModules.home-manager
           {
               home-manager = {
@@ -37,7 +34,6 @@
 	system = "x86_64-linux";
 	modules = [
           ./configuration.nix
-	  ./hosts/laptop/hardware-configuration.nix
           ./hosts/laptop/default.nix
 	  ./modules/laptop.nix
           home-manager.nixosModules.home-manager

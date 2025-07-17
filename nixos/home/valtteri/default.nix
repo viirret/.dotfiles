@@ -3,6 +3,7 @@
 {
   imports = [
     ../fish.nix
+    ../nvim.nix
   ];
 
   home.stateVersion = "23.11";
@@ -27,6 +28,5 @@
     alacritty
     fish
     i3
-    neovim
   ];
 }
