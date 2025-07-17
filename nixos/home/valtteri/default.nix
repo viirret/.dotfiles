@@ -23,7 +23,6 @@
   };
 
   home.packages = with pkgs; [
-    ripgrep
     tree
     firefox
     alacritty

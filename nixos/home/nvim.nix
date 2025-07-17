@@ -11,19 +11,19 @@
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
-      clang-tools
-      gcc
-      cmake
+      ripgrep
 
+      # lsp
+      clang-tools
       nil
       lua-language-server
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       python3Packages.python-lsp-server
 
+      # formatting
       black
       ruff
-      nixpkgs-fmt
       stylua
     ];
   };
