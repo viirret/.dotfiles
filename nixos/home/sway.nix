@@ -2,9 +2,12 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    wrapperFeatures.gtk = true;
+    systemd.enable = true;
+
     config = rec {
       modifier = "Mod4";
-      terminal = "alacritty";
+      terminal = "foot";
       menu = "wofi --show drun";
 
       keybindings = pkgs.lib.mkOptionDefault {
@@ -54,17 +57,27 @@
       input * {
         xkb_layout "fi"
       }
+      exec "export XDG_RUNTIME_DIR=/run/user/$(id -u)"
+      exec "export WAYLAND_DISPLAY=wayland-1"
     '';
   };
 
   home.packages = with pkgs; [
+    dbus
     swaylock
     swayidle
     wl-clipboard
-    mako
-    alacritty
+    grim
+    slurp
+
+    foot
     waybar
     wofi
+    mako
+
+    mesa
+    vulkan-tools
+    libva-utils
   ];
 
   # Environment variables for Wayland compatibility
@@ -73,5 +86,24 @@
     QT_QPA_PLATFORM = "wayland";    # Qt apps on Wayland
     SDL_VIDEODRIVER = "wayland";    # SDL games on Wayland
     XDG_CURRENT_DESKTOP = "sway";   # Helps some apps recognize Sway
+
+    LIBVA_DRIVER_NAME = "radeonsi";
+    GBM_BACKEND = "radeonsi";
+    WLR_RENDERER = "vulkan";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
+  systemd.user.services = {
+    sway-session = {
+        Unit = {
+            Description = "Sway compositor session";
+            Requires = [ "graphical-session-pre.target" ];
+            After = [ "graphical-session-pre.target "];
+        };
+        Service = {
+            ExecStart = "${pkgs.sway}/bin/sway";
+            Restart = "on-failure";
+        };
+    };
   };
 }

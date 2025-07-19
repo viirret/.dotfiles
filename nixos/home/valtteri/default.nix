@@ -6,6 +6,8 @@
     ../fish.nix
     ../git.nix
     ../nvim.nix
+    ../foot.nix
+    ../sway.nix
   ];
 
   home.username = "valtteri";
@@ -17,9 +19,9 @@
   };
 
   home.packages = with pkgs; [
+    fira-code
     tree
     firefox
-    alacritty
     fish
     i3
   ];
