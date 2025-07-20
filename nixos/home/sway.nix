@@ -57,6 +57,11 @@
       input * {
         xkb_layout "fi"
       }
+
+      bar {
+          position top
+          status_command waybar
+      }
       exec "export XDG_RUNTIME_DIR=/run/user/$(id -u)"
       exec "export WAYLAND_DISPLAY=wayland-1"
     '';
@@ -82,10 +87,10 @@
 
   # Environment variables for Wayland compatibility
   home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";       # Firefox on Wayland
-    QT_QPA_PLATFORM = "wayland";    # Qt apps on Wayland
-    SDL_VIDEODRIVER = "wayland";    # SDL games on Wayland
-    XDG_CURRENT_DESKTOP = "sway";   # Helps some apps recognize Sway
+    MOZ_ENABLE_WAYLAND = "1"; # Firefox on Wayland
+    QT_QPA_PLATFORM = "wayland"; # Qt apps on Wayland
+    SDL_VIDEODRIVER = "wayland"; # SDL games on Wayland
+    XDG_CURRENT_DESKTOP = "sway"; # Helps some apps recognize Sway
 
     LIBVA_DRIVER_NAME = "radeonsi";
     GBM_BACKEND = "radeonsi";
@@ -95,15 +100,15 @@
 
   systemd.user.services = {
     sway-session = {
-        Unit = {
-            Description = "Sway compositor session";
-            Requires = [ "graphical-session-pre.target" ];
-            After = [ "graphical-session-pre.target "];
-        };
-        Service = {
-            ExecStart = "${pkgs.sway}/bin/sway";
-            Restart = "on-failure";
-        };
+      Unit = {
+        Description = "Sway compositor session";
+        Requires = [ "graphical-session-pre.target" ];
+        After = [ "graphical-session-pre.target " ];
+      };
+      Service = {
+        ExecStart = "${pkgs.sway}/bin/sway";
+        Restart = "on-failure";
+      };
     };
   };
 }

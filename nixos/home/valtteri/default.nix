@@ -8,6 +8,7 @@
     ../nvim.nix
     ../foot.nix
     ../sway.nix
+    ../waybar.nix
   ];
 
   home.username = "valtteri";
