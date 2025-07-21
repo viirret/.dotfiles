@@ -9,6 +9,10 @@
       modifier = "Mod4";
       terminal = "foot";
       menu = "wofi --show drun";
+      bars = [{
+        command = "waybar";
+        position = "top";
+      }];
 
       keybindings = pkgs.lib.mkOptionDefault {
         "${modifier}+1" = "workspace number 1";
@@ -53,15 +57,12 @@
         "${modifier}+r" = "mode resize";
       };
     };
+
     extraConfig = ''
       input * {
         xkb_layout "fi"
       }
 
-      bar {
-          position top
-          status_command waybar
-      }
       exec "export XDG_RUNTIME_DIR=/run/user/$(id -u)"
       exec "export WAYLAND_DISPLAY=wayland-1"
     '';
