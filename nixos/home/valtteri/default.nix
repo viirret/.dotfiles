@@ -20,6 +20,7 @@
   };
 
   home.packages = with pkgs; [
+    pavucontrol
     fira-code
     tree
     firefox
