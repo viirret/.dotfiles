@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  browser = "firefox";
+in
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -24,7 +27,6 @@
         "${modifier}+7" = "workspace number 7";
         "${modifier}+8" = "workspace number 8";
         "${modifier}+9" = "workspace number 9";
-        "${modifier}+0" = "workspace number 10";
 
         "${modifier}+Shift+1" = "move container to workspace number 1";
         "${modifier}+Shift+2" = "move container to workspace number 2";
@@ -35,11 +37,20 @@
         "${modifier}+Shift+7" = "move container to workspace number 7";
         "${modifier}+Shift+8" = "move container to workspace number 8";
         "${modifier}+Shift+9" = "move container to workspace number 9";
-        "${modifier}+Shift+0" = "move container to workspace number 10";
 
+        # Common options
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+d" = "exec ${menu}";
-        "${modifier}+q" = "kill";
+        "${modifier}+f" = "fullscreen toggle";
+        "${modifier}+s" = "layout stacking";
+        "${modifier}+w" = "layout tabbed";
+        "${modifier}+e" = "layout toggle split";
+        "${modifier}+Shift+q" = "kill";
+        "${modifier}+Shift+c" = "reload";
+        "${modifier}+Shift+e" = "exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'";
+        "${modifier}+r" = "mode resize";
+
+        # Vim keys
         "${modifier}+h" = "focus left";
         "${modifier}+j" = "focus down";
         "${modifier}+k" = "focus up";
@@ -48,13 +59,10 @@
         "${modifier}+Shift+j" = "move down";
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
-        "${modifier}+f" = "fullscreen toggle";
-        "${modifier}+s" = "layout stacking";
-        "${modifier}+w" = "layout tabbed";
-        "${modifier}+e" = "layout toggle split";
-        "${modifier}+Shift+c" = "reload";
-        "${modifier}+Shift+e" = "exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'";
-        "${modifier}+r" = "mode resize";
+
+        # Custom preferences
+        "${modifier}+q" = "kill";
+        "${modifier}+b" = "exec ${browser}";
       };
     };
 
@@ -80,6 +88,7 @@
     waybar
     wofi
     mako
+    firefox
 
     mesa
     vulkan-tools
