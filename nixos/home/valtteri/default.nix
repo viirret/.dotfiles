@@ -2,13 +2,8 @@
 
 {
   imports = [
-    ../home.nix
-    ../fish.nix
-    ../git.nix
-    ../nvim.nix
-    ../foot.nix
-    ../sway.nix
-    ../waybar.nix
+    ../default.nix
+    ./packages.nix
   ];
 
   home.username = "valtteri";
@@ -18,13 +13,4 @@
     userName = "viirret";
     userEmail = "viirretvaltteri@gmail.com";
   };
-
-  home.packages = with pkgs; [
-    pavucontrol
-    fira-code
-    tree
-    firefox
-    fish
-    i3
-  ];
 }
