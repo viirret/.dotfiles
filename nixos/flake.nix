@@ -16,7 +16,7 @@
       wm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./users/valtteri/default.nix
+          ./users/valtteri.nix
           ./hosts/wm/default.nix
           ./modules/wm.nix
           home-manager.nixosModules.home-manager
@@ -33,7 +33,7 @@
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./users/valtteri/default.nix
+          ./users/valtteri.nix
           ./hosts/laptop/default.nix
           ./modules/laptop.nix
           home-manager.nixosModules.home-manager

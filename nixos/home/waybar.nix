@@ -5,9 +5,21 @@
     settings = {
       mainBar = {
         position = "top";
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ "sway/window" ];
-        modules-right = [ "battery" "clock" ];
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+          "hyprland/workspaces"
+        ];
+
+        modules-center = [
+          "sway/window"
+          "hyprland/window"
+        ];
+
+        modules-right = [
+          "battery"
+          "clock"
+        ];
       };
     };
   };

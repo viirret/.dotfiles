@@ -8,5 +8,6 @@
     ./foot.nix
     ./sway.nix
     ./waybar.nix
+    ./hyprland.nix
   ];
 }
