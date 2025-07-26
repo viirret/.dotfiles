@@ -4,7 +4,11 @@
   imports = [
     ../default.nix
     ./hardware-configuration.nix
+    ./modules.nix
   ];
+
+  my.bluetooth.enable = true;
+  my.bluetooth.user = "valtteri";
 
   boot.loader = {
     efi = {

@@ -24,6 +24,11 @@ in {
         "waybar"
       ];
 
+      decoration = {
+          active_opacity = 0.9;
+          inactive_opacity = 0.8;
+      };
+
       input = {
         kb_layout = "fi";
         follow_mouse = 1;
@@ -47,7 +52,6 @@ in {
 
         "${modifier},Q,killactive"
         "${modifier},F,fullscreen,1"
-        "${modifier},E,exec,thunar"
 
         # Workspace bindings
         "${modifier},1,workspace,1"

@@ -9,5 +9,6 @@
     ./sway.nix
     ./waybar.nix
     ./hyprland.nix
+    ./tmux.nix
   ];
 }

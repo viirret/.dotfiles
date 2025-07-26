@@ -18,7 +18,6 @@
         modules = [
           ./users/valtteri.nix
           ./hosts/wm/default.nix
-          ./modules/wm.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -35,7 +34,6 @@
         modules = [
           ./users/valtteri.nix
           ./hosts/laptop/default.nix
-          ./modules/laptop.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
