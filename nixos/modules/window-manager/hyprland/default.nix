@@ -6,7 +6,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.graphics = {
-      enable = true;
+    enable = true;
   };
 
   environment.sessionVariables = {
