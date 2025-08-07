@@ -52,6 +52,7 @@
       # Bind Vim-style keys for moving between windows
       bind j previous-window
       bind k next-window
+      bind q kill-window
 
       set -g status-style bg=colour237,fg=colour230
       set -g status-right ""
