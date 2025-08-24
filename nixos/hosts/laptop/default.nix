@@ -7,8 +7,14 @@
     ./modules.nix
   ];
 
+  unfree = {
+    enable = true;
+  };
+
   my.bluetooth.enable = true;
   my.bluetooth.user = "valtteri";
+
+  hardware.firmware = [ pkgs.linux-firmware ];
 
   boot.loader = {
     efi = {
@@ -23,9 +29,11 @@
   };
 
   boot.supportedFilesystems = [ "ext4" "vfat" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.acpid.enable = true;
   environment.systemPackages = with pkgs; [
+    discord
     acpi
     acpid
   ];
