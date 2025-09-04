@@ -34,6 +34,7 @@
   services.acpid.enable = true;
   environment.systemPackages = with pkgs; [
     discord
+    brightnessctl
     acpi
     acpid
   ];
