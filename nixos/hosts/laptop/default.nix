@@ -11,6 +11,10 @@
     enable = true;
   };
 
+  virtualisation.docker = {
+      enable = true;
+  };
+
   my.bluetooth.enable = true;
   my.bluetooth.user = "valtteri";
 

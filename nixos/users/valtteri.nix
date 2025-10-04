@@ -8,6 +8,6 @@
     shell = pkgs.fish;
     ignoreShellProgramCheck = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" "bluetooth" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "bluetooth" "docker" ];
   };
 }

@@ -15,5 +15,6 @@
     python3
     openjdk
     sqlite
+    docker
   ];
 }
