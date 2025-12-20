@@ -16,5 +16,6 @@
     openjdk
     sqlite
     docker
+    cmake
   ];
 }

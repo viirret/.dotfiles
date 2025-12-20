@@ -9,8 +9,8 @@
   home.username = "valtteri";
   home.homeDirectory = "/home/valtteri";
 
-  programs.git = {
-    userName = "viirret";
-    userEmail = "viirretvaltteri@gmail.com";
+  programs.git.settings.user = {
+    name = "viirret";
+    email = "viirretvaltteri@gmail.com";
   };
 }
