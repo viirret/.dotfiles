@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure lazy.nvim
 require("lazy").setup({
-
 	---------------------------------------------------------------------------
 	-- Mason + LSP
 	---------------------------------------------------------------------------
@@ -121,6 +120,47 @@ require("lazy").setup({
 					end
 				end,
 			})
+
+			-- Define and enable python-lsp-server
+			vim.lsp.config["pylsp"] = {
+				cmd = { "pylsp" },
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "python" },
+				settings = {
+					pylsp = {
+						plugins = {
+							pyflakes = { enabled = true },
+							pycodestyle = { enabled = true },
+							black = { enabled = false },
+							ruff = { enabled = true },
+							pylsp_mypy = { enabled = false },
+						},
+					},
+				},
+			}
+
+			-- Auto-start for Python files
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "python" },
+				callback = function(args)
+					local active = vim.lsp.get_clients({ bufnr = args.buf, name = "pylsp" })
+					if #active == 0 then
+						vim.lsp.start({
+							name = "pylsp",
+							cmd = { "pylsp" },
+							capabilities = capabilities,
+							on_attach = on_attach,
+							root_dir = vim.fs.dirname(
+								vim.fs.find(
+									{ "pyproject.toml", "setup.py", ".git" },
+									{ upward = true, path = args.file }
+								)[1]
+							),
+						})
+					end
+				end,
+			})
 		end,
 	},
 
@@ -160,10 +200,7 @@ require("lazy").setup({
 		end,
 	},
 
-	---------------------------------------------------------------------------
-	-- Telescope
-	---------------------------------------------------------------------------
-	{
+ {
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -180,6 +217,8 @@ require("lazy").setup({
 	---------------------------------------------------------------------------
 	"nvim-tree/nvim-web-devicons",
 	"romgrk/barbar.nvim",
+	"nvim-treesitter/nvim-treesitter",
+
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -198,5 +237,4 @@ require("lazy").setup({
 			require("nvim-autopairs").setup()
 		end,
 	},
-	{ "nvim-treesitter/nvim-treesitter" },
 })

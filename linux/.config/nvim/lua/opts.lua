@@ -23,6 +23,8 @@ opt.ruler = true
 opt.clipboard = "unnamedplus"
 opt.expandtab = true
 opt.list = true
+opt.syntax = "ON"
+opt.termguicolors = true
 
 cmd("set noshowmode")
 cmd("abb WQ wq")
@@ -31,6 +33,3 @@ cmd("abb Wq wq")
 -- theme
 g.t_co = 256
 g.background = "dark"
-
-opt.syntax = "ON"
-opt.termguicolors = true

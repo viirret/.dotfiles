@@ -2,16 +2,15 @@ if not vim then
 	error("This config must be run inside Neovim")
 end
 
-local keys = require("keys.keys")
-
--- packer
-require("plug")
-
--- options
+require("keys.keys")
 require("opts")
 
---local clear_lsp_log = require('clear_lsp_log')
---clear_lsp_log.clear_lsp_log_if_needed()
+-- packer
+require("config.lazy")
+
+
+local clear_lsp_log = require('clear_lsp_log')
+clear_lsp_log.clear_lsp_log_if_needed()
 
 vim.api.nvim_create_user_command("LspStatus", function()
 	local clients = vim.lsp.get_clients({ bufnr = 0 })
