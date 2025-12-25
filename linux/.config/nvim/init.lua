@@ -8,8 +8,7 @@ require("opts")
 -- packer
 require("config.lazy")
 
-
-local clear_lsp_log = require('clear_lsp_log')
+local clear_lsp_log = require("clear_lsp_log")
 clear_lsp_log.clear_lsp_log_if_needed()
 
 vim.api.nvim_create_user_command("LspStatus", function()
