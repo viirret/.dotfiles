@@ -32,23 +32,11 @@ function M.setup(capabilities, on_attach, is_nixos)
 	end
 
 	local clangd_config = {
+		name = "clangd",
 		cmd = { clangd_bin, "--header-insertion=never" },
 		capabilities = capabilities,
 		on_attach = on_attach,
-		filetypes = { "c", "cpp", "objc", "objcpp", "ixx" },
-		root_dir = function(fname)
-			local compile_commands = vim.fs.find("compile_commands.json", { upward = true, path = fname })[1]
-			if compile_commands then
-				return vim.fs.dirname(compile_commands)
-			end
-
-			local git_root = vim.fs.find(".git", { upward = true, path = fname })[1]
-			if git_root then
-				return vim.fs.dirname(git_root)
-			end
-
-			return vim.fn.getcwd()
-		end,
+		filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	}
 
 	-- Register clangd in vim.lsp.config
@@ -56,13 +44,22 @@ function M.setup(capabilities, on_attach, is_nixos)
 
 	-- Automatically start clangd for C/C++ buffers
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "c", "cpp", "objc", "objcpp", "ixx", "hpp", "hh" },
+		pattern = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 		callback = function(args)
 			local active = vim.lsp.get_clients({ bufnr = args.buf, name = "clangd" })
 			if #active == 0 then
-				local bufname = vim.api.nvim_buf_get_name(args.buf)
-				local root = clangd_config.root_dir(bufname)
-				vim.lsp.start(vim.tbl_extend("force", clangd_config, { root_dir = root }))
+				local path = vim.api.nvim_buf_get_name(args.buf)
+				local root = vim.fs.root(args.buf, {
+					"compile_commands.json",
+					".git",
+				}) or vim.loop.cwd()
+				vim.lsp.start({
+					name = clangd_config.name,
+					cmd = clangd_config.cmd,
+					capabilities = clangd_config.capabilities,
+					on_attach = clangd_config.on_attach,
+					root_dir = root,
+				})
 			end
 		end,
 	})

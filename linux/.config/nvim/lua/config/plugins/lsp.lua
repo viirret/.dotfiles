@@ -14,6 +14,8 @@ return {
 
 		require("config.plugins.lsp.lua").setup(capabilities, on_attach)
 		require("config.plugins.lsp.python").setup(capabilities, on_attach)
+		require("config.plugins.lsp.nix").setup(capabilities, on_attach)
 		require("config.plugins.lsp.clang").setup(capabilities, on_attach, is_nixos)
+		require("config.plugins.lsp.ts").setup(capabilities, on_attach)
 	end,
 }
