@@ -2,10 +2,13 @@ if not vim then
 	error("This config must be run inside Neovim")
 end
 
+-- Global keys
 require("keys.keys")
+
+-- Global options
 require("opts")
 
--- packer
+-- Lazy config
 require("config.lazy")
 
 local clear_lsp_log = require("clear_lsp_log")
