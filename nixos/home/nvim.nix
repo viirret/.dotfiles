@@ -13,13 +13,15 @@
     extraPackages = with pkgs; [
       ripgrep
 
-      # lsp
-      clang-tools
-      nil
+      # LSP servers
+      nixd
+      vtsls
       lua-language-server
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
       python3Packages.python-lsp-server
+      rust-analyzer
+      nil
+      clang-tools
+      marksman
 
       # formatting
       black

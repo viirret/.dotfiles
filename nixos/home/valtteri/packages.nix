@@ -2,20 +2,36 @@
 
 {
   home.packages = with pkgs; [
-    pavucontrol
-    fira-code
+    # Common
     tree
-    firefox
-    fish
-    i3
-    qbittorrent
     zip
     unzip
     file
+
+    # Programming
     python3
     openjdk
     sqlite
     docker
+
+    # Cpp stuff
     cmake
+    gnumake
+    gcc
+
+    # Font
+    fira-code
+
+    # Browser
+    firefox
+
+    # Shell
+    fish
+
+    # Volume control
+    pavucontrol
+
+    # Torrent client
+    qbittorrent
   ];
 }
