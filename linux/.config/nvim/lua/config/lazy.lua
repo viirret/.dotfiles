@@ -1,6 +1,8 @@
--- Ensure lazy.nvim is installed
+local fs = require("utils.fs")
+
+-- Lazy nvim bootstrapping
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not fs.safe_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
