@@ -4,7 +4,7 @@ local is_nixos = require("utils.is_nixos").is_nixos
 local M = {}
 
 function M.setup(capabilities, on_attach)
-	local cmd = { "clangd" }
+	local cmd = { "clangd", "--header-insertion=never" }
 	if is_nixos() then
 		table.insert(cmd, "--query-driver=/nix/store/*-gcc-*/bin/g++")
 	end
