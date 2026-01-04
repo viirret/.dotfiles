@@ -20,6 +20,6 @@ map("", "<down>", "<nop>")
 map("", "<left>", "<nop>")
 map("", "<right>", "<nop>")
 
--- Vim motions for buffers
-map("n", "<C-j>", ":bprevious<CR>")
-map("n", "<C-k>", ":bnext<CR>")
+-- Ctrl j+k for swapping buffers.
+map("n", "<C-j>", "<Cmd>BufferPrevious<CR>")
+map("n", "<C-k>", "<Cmd>BufferNext<CR>")
