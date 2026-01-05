@@ -20,6 +20,17 @@ map("", "<down>", "<nop>")
 map("", "<left>", "<nop>")
 map("", "<right>", "<nop>")
 
+--
+-- Barbar
+--
+
 -- Ctrl j+k for swapping buffers.
 map("n", "<C-j>", "<Cmd>BufferPrevious<CR>")
 map("n", "<C-k>", "<Cmd>BufferNext<CR>")
+
+-- Close buffer
+map("n", "<C-x>", "<Cmd>BufferClose<CR>")
+
+-- Re-order to previous/next
+map("n", "<C-h>", "<Cmd>BufferMovePrevious<CR>")
+map("n", "<C-l>", "<Cmd>BufferMoveNext<CR>")
