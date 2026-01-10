@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{minted}
+
+\begin{document}
+\author{Valtteri Viirret}
+\title{C++ in {\LaTeX}}
+\maketitle
+
+%\inputminted[linenos, frame=lines, framesep=2mm]{cpp}{/path/to/source.cpp}
+
+\begin{minted}[linenos, frame=lines, framesep=2mm, breaklines]{cpp}
+#include <iostream>
+#include <algorithm>
+
+template<typename T>
+class SmartPointer {
+private:
+    T* ptr;
+
+public:
+    explicit SmartPointer(T* p = nullptr) : ptr(p) {}
+
+    ~SmartPointer() {
+        delete ptr;
+    }
+
+    T& operator*() const { return *ptr; }
+    T* operator->() const { return ptr; }
+};
+
+int main() {
+    SmartPointer<int> sp(new int(10));
+    std::cout << *sp << std::endl;
+    return 0;
+}
+\end{minted}
+
+\end{document}
