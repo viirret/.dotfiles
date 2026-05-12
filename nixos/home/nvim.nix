@@ -46,4 +46,7 @@
     nerd-fonts.symbols-only
   ];
 
+  programs.neovim.withRuby = false;
+  programs.neovim.withPython3 = true;
+
 }
