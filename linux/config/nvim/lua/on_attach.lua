@@ -10,7 +10,7 @@ function M.on_attach(client, bufnr)
 
     -- Disable LSP formatting for filetypes handled by conform
     local ft = vim.bo[bufnr].filetype
-    if client.supports_method "textDocument/formatting" and formatter_avainable[ft] then
+    if client:supports_method "textDocument/formatting" and formatter_avainable[ft] then
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end
