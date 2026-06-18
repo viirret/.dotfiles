@@ -15,6 +15,7 @@
     openjdk
     sqlite
     docker
+    opencode
 
     # Cpp stuff
     cmake
