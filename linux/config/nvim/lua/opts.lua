@@ -34,3 +34,6 @@ opt.number = true
 -- Indentation settings
 opt.autoindent = true
 opt.smartindent = true
+
+-- so that `` is visible in markdown files
+opt.conceallevel = 0
