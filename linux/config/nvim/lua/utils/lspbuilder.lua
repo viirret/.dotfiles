@@ -33,6 +33,9 @@ function M.build(opts)
     vim.api.nvim_create_autocmd("FileType", {
         pattern = filetypes,
         callback = function(args)
+            if vim.api.nvim_win_get_config(vim.fn.bufwinid(args.buf)).relative ~= "" then
+                return
+            end
             local active = vim.lsp.get_clients { bufnr = args.buf, name = name }
             if #active == 0 then
                 local root = root_dir_fn(args.file)
