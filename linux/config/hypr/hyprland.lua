@@ -53,8 +53,8 @@ local mod = "SUPER"
 -- Terminal
 hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("alacritty"))
 
--- Kill focused window
-hl.bind(mod .. " + Q", hl.dsp.window.kill())
+-- Close focused window
+hl.bind(mod .. " + Q", hl.dsp.window.close())
 
 -- Launcher
 hl.bind(mod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
