@@ -4,7 +4,7 @@
     "height": 30,
     "spacing": 4,
 
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["ext/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [
         "custom/spotify",
@@ -18,8 +18,9 @@
         "tray"
     ],
 
-    "hyprland/workspaces": {
-        "format": "{id}"
+    "ext/workspaces": {
+        "format": "{id}",
+        "on-click": "activate"
     },
 
     "clock": {
