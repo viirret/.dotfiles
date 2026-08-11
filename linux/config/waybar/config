@@ -19,7 +19,7 @@
     ],
 
     "ext/workspaces": {
-        "format": "{id}",
+        "format": "{name}",
         "on-click": "activate"
     },
 
