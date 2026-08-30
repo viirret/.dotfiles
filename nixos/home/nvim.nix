@@ -10,6 +10,7 @@
 
   programs.neovim = {
     enable = true;
+    sideloadInitLua = true;
     extraPackages = with pkgs; [
       tree-sitter
       ripgrep
