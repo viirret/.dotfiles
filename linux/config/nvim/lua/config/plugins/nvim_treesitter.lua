@@ -30,7 +30,7 @@ return {
         },
     },
     config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
+        require("nvim-treesitter").setup(opts)
 
         local orig_get_node_text = vim.treesitter.get_node_text
         if orig_get_node_text then
